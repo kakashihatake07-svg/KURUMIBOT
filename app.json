@@ -162,7 +162,30 @@
          "description": "Required for wallpaper. Get your's from https://wall.alphacoders.com/",
          "required": false,
          "value": ""
+      }, 
+      "TEMP_DOWNLOAD_DIRECTORY": {
+         "description": "Don't change the ./",
+         "required": true,
+         "value": "./"
+      },
+      "TELEGRAPH_SHORT_NAME": {
+         "description": "To Run telegraph uploader",
+         "required": false,
+         "value": "Kurumi"
       }
-      
-   }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "heroku/python"
+    }, 
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
+    }, 
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-chromedriver"
+    }
+  ]
 }
