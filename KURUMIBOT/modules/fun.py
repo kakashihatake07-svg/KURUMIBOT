@@ -268,6 +268,7 @@ __help__ = """
  • `/meme` *:* get random memes from reddit
  • `/hugs` or `/hug` *:* get hugged, hugs a user
  • `/wttr` <city/country name> *:* get weather details. 
+ • `/tagall` *:* tag everyone in group 
 
 ⚜Telegraph :-
  • `/tt` *:* upload text and get telegraph link. 
