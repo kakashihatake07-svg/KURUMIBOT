@@ -632,7 +632,7 @@ WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "cclass"],
 TIGERLIST_HANDLER = CommandHandler(["tigers" , "bclass"], tigerlist)
 SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "aclass"], supportlist)
 SUDOLIST_HANDLER = CommandHandler(["sudolist", "sclass"], sudolist)
-DEVLIST_HANDLER = CommandHandler(["devlist", "ssclasss"], devlist)
+DEVLIST_HANDLER = CommandHandler(["devlist", "ssclass"], devlist)
 
 dispatcher.add_handler(SUDO_HANDLER)
 dispatcher.add_handler(SUPPORT_HANDLER)
