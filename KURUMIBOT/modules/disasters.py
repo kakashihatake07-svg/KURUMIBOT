@@ -14,7 +14,7 @@ from telegram.ext import CallbackContext, CommandHandler, run_async
 from telegram.utils.helpers import mention_html
 
 ELEVATED_USERS_FILE = os.path.join(os.getcwd(),
-                                   'SungJinwooRobot/elevated_users.json')
+                                   'KURUMIBOT/elevated_users.json')
 
 
 def check_user_id(user_id: int, context: CallbackContext) -> Optional[str]:
@@ -63,16 +63,16 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        message.reply_text("This member is already a A Rank Hunter")
+        message.reply_text("This member is already a S-Class Spirit")
         return ""
 
     if user_id in DEMONS:
-        rt += "Requested HA to promote a B Rank Hunter to A Rank Hunter."
+        rt += "Requested HA to promote a AAA-Class Spirit to S-Class Spirit."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        rt += "Requested HA to promote a D Rank Hunter to A Rank Hunter."
+        rt += "Requested HA to promote a A-Class Spirit to S-Class Spirit."
         data['whitelists'].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -83,7 +83,7 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + "\nSuccessfully set Power Level {} to A Rank Hunter!".format(
+        rt + "\nSuccessfully set Power Level {} to S-Class Spirit!".format(
             user_member.first_name))
 
     log_message = (
@@ -122,16 +122,16 @@ def addsupport(
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "Requested HA to demote this A Rank Hunter to B Rank Hunter"
+        rt += "Requested HA to demote this S-Class Spirit to AAA-Class Spirit"
         data['sudos'].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        message.reply_text("This user is already a B Rank Hunter.")
+        message.reply_text("This user is already a AAA-Class Spirit.")
         return ""
 
     if user_id in WOLVES:
-        rt += "Requested HA to promote this D Rank Hunter to B Rank Hunter"
+        rt += "Requested HA to promote this A-Class Spirit to AAA-Class Spirit"
         data['whitelists'].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -142,7 +142,7 @@ def addsupport(
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\n{user_member.first_name} was added as a B Rank Hunter!")
+        rt + f"\n{user_member.first_name} was added as a AAA-Class Spirit!")
 
     log_message = (
         f"#SUPPORT\n"
@@ -177,17 +177,17 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "This member is a A Rank Hunter, Demoting to D Rank Hunter."
+        rt += "This member is a S-Class Spirit, Demoting to A-Class Spirit."
         data['sudos'].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        rt += "This user is already a B Rank Hunter, Demoting to D Rank Hunter."
+        rt += "This user is already a AAA-Class Spirit, Demoting to A-Class Spirit."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        message.reply_text("This user is already a D Rank Hunter.")
+        message.reply_text("This user is already a A-Class Spirit.")
         return ""
 
     data['whitelists'].append(user_id)
@@ -198,7 +198,7 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
 
     update.effective_message.reply_text(
         rt +
-        f"\nSuccessfully promoted {user_member.first_name} to a D Rank Hunter!")
+        f"\nSuccessfully promoted {user_member.first_name} to a A-Class Spirit!")
 
     log_message = (
         f"#WHITELIST\n"
@@ -233,22 +233,22 @@ def addtiger(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "This member is a A Rank Hunter, Demoting to C Rank Hunter."
+        rt += "This member is a S-Class Spirit, Demoting to AA-Class Spirit."
         data['sudos'].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        rt += "This user is already a B Rank Hunter, Demoting to C Rank Hunter."
+        rt += "This user is already a AAA-Class Spirit, Demoting to AA-Class Spirit."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        rt += "This user is already a D Rank Hunter, Demoting to C Rank Hunter."
+        rt += "This user is already a A-Class Spirit, Demoting to AA-Class Spirit."
         data['whitelists'].remove(user_id)
         WOLVES.remove(user_id)
 
     if user_id in TIGERS:
-        message.reply_text("This user is already a C Rank Hunter.")
+        message.reply_text("This user is already a AA-Class Spirit.")
         return ""
 
     data['tigers'].append(user_id)
@@ -259,7 +259,7 @@ def addtiger(update: Update, context: CallbackContext) -> str:
 
     update.effective_message.reply_text(
         rt +
-        f"\nSuccessfully promoted {user_member.first_name} to a C Rank Hunter!"
+        f"\nSuccessfully promoted {user_member.first_name} to a AA-Class Spirit!"
     )
 
     log_message = (
@@ -294,7 +294,7 @@ def removesudo(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        message.reply_text("Requested HA to demote this user to Civilian")
+        message.reply_text("Requested HA to make this user a Human again")
         DRAGONS.remove(user_id)
         data['sudos'].remove(user_id)
 
@@ -314,7 +314,7 @@ def removesudo(update: Update, context: CallbackContext) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not a A Rank Hunter!")
+        message.reply_text("This user is not a S-Class Spirit!")
         return ""
 
 
@@ -338,7 +338,7 @@ def removesupport(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DEMONS:
-        message.reply_text("Requested HA to demote this user to Civilian")
+        message.reply_text("Requested HA to make this user a Human again")
         DEMONS.remove(user_id)
         data['supports'].remove(user_id)
 
@@ -357,7 +357,7 @@ def removesupport(update: Update, context: CallbackContext) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not a B Rank Hunter!")
+        message.reply_text("This user is not a AAA-Class Spirit!")
         return ""
 
 
@@ -381,7 +381,7 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in WOLVES:
-        message.reply_text("Demoting to normal user")
+        message.reply_text("Making this person a Human")
         WOLVES.remove(user_id)
         data['whitelists'].remove(user_id)
 
@@ -399,7 +399,7 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
 
         return log_message
     else:
-        message.reply_text("This user is not a D Rank Hunter!")
+        message.reply_text("This user is not a A-Class Spirit!")
         return ""
 
 
@@ -423,7 +423,7 @@ def removetiger(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in TIGERS:
-        message.reply_text("Demoting to normal user")
+        message.reply_text("Making this person a Human")
         TIGERS.remove(user_id)
         data['tigers'].remove(user_id)
 
@@ -441,14 +441,14 @@ def removetiger(update: Update, context: CallbackContext) -> str:
 
         return log_message
     else:
-        message.reply_text("This user is not a Tiger Disaster!")
+        message.reply_text("This user is not a AA-Class Disaster!")
         return ""
 
 
 @run_async
 @whitelist_plus
 def whitelistlist(update: Update, context: CallbackContext):
-    reply = "<b>Known D Rank Hunters 🐺:</b>\n"
+    reply = "<b>Known A-Class Spirits 🐺:</b>\n"
     bot = context.bot
     for each_user in WOLVES:
         user_id = int(each_user)
@@ -464,7 +464,7 @@ def whitelistlist(update: Update, context: CallbackContext):
 @run_async
 @whitelist_plus
 def tigerlist(update: Update, context: CallbackContext):
-    reply = "<b>Known C Rank Hunters 🐯:</b>\n"
+    reply = "<b>Known AA-Class Spirits 🐯:</b>\n"
     bot = context.bot
     for each_user in TIGERS:
         user_id = int(each_user)
@@ -480,7 +480,7 @@ def tigerlist(update: Update, context: CallbackContext):
 @whitelist_plus
 def supportlist(update: Update, context: CallbackContext):
     bot = context.bot
-    reply = "<b>Known B Rank Hunters 👹:</b>\n"
+    reply = "<b>Known AAA-Class Spirits 👹:</b>\n"
     for each_user in DEMONS:
         user_id = int(each_user)
         try:
@@ -496,7 +496,7 @@ def supportlist(update: Update, context: CallbackContext):
 def sudolist(update: Update, context: CallbackContext):
     bot = context.bot
     true_sudo = list(set(DRAGONS) - set(DEV_USERS))
-    reply = "<b>Known A Rank Hunters 🐉:</b>\n"
+    reply = "<b>Known S-Class Spirits🐉:</b>\n"
     for each_user in true_sudo:
         user_id = int(each_user)
         try:
@@ -512,7 +512,7 @@ def sudolist(update: Update, context: CallbackContext):
 def devlist(update: Update, context: CallbackContext):
     bot = context.bot
     true_dev = list(set(DEV_USERS) - {OWNER_ID})
-    reply = "<b>S Rank Hunters ⚡️:</b>\n"
+    reply = "<b>SS-Class Spirits ⚡️:</b>\n"
     for each_user in true_dev:
         user_id = int(each_user)
         try:
@@ -528,17 +528,19 @@ __help__ = f"""
 Commands listed here only work for users with special access are mainly used for troubleshooting, debugging purposes.
 Group admins/group owners do not need these commands. 
 
+To know about spirits level abilities :- [click here](https://t.me/hiroiscool/3) 
+
  ╔ *List all special users:*
- ╠ `/aranks`*:* Lists all A Rank Hunters
- ╠ `/branks`*:* Lists all B Rank Hunters
- ╠ `/cranks`*:* Lists all C Rank Hunters
- ╠ `/dranks`*:* Lists all D Rank Hunters
- ╠ `/sranks`*:* Lists all S Rank Hunters
- ╠ `/addarank`*:* Adds a user to A Rank Hunter
- ╠ `/addbrank`*:* Adds a user to B Rank Hunter
- ╠ `/addcrank`*:* Adds a user to C Rank Hunter
- ╠ `/adddrank`*:* Adds a user to D Rank Hunter
- ╚ `Add dev doesnt exist, devs should know how to add themselves`
+ ╠ `/ssclass`*:* Lists all SS-Class Spirits
+ ╠ `/sclass`*:* Lists all S-Class Spirits
+ ╠ `/aaaclass`*:* Lists all AAA-Class Spirits
+ ╠ `/aaclass`*:* Lists all AA-Class Spirits
+ ╠ `/aclass`*:* Lists all A-Class Spirits
+ ╠ `/psclass`*:* Adds a user to S-Class Spirit
+ ╠ `/paaaclass`*:* Adds a user to AAA-Class spirit
+ ╠ `/paaclass`*:* Adds a user to AA-Class Spirit
+ ╠ `/paclass`*:* Adds a user to A-Class Spirit
+ ╚ `Add SS-Class doesnt exist, SS-Class Spirits should know how to add themselves`
 
  ╔ *Ping:*
  ╠ `/ping`*:* gets ping time of bot to telegram server
@@ -625,12 +627,12 @@ UNTIGER_HANDLER = CommandHandler(("removetiger" , "removecrank"), removetiger)
 UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removedrank"),
                                      removewhitelist)
 
-WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "dranks"],
+WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "aclass"],
                                        whitelistlist)
-TIGERLIST_HANDLER = CommandHandler(["tigers" , "cranks"], tigerlist)
-SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "branks"], supportlist)
-SUDOLIST_HANDLER = CommandHandler(["sudolist", "aranks"], sudolist)
-DEVLIST_HANDLER = CommandHandler(["devlist", "sranks"], devlist)
+TIGERLIST_HANDLER = CommandHandler(["tigers" , "aaclass"], tigerlist)
+SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "aaaclass"], supportlist)
+SUDOLIST_HANDLER = CommandHandler(["sudolist", "sclass"], sudolist)
+DEVLIST_HANDLER = CommandHandler(["devlist", "ssclasss"], devlist)
 
 dispatcher.add_handler(SUDO_HANDLER)
 dispatcher.add_handler(SUPPORT_HANDLER)
