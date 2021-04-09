@@ -280,13 +280,13 @@ def info(update: Update, context: CallbackContext):
         text += "\n\nThe Power level of this person is 'S-Class Spirit'."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThe Power level of this person is 'AAA-Class Spirit'."
+        text += "\n\nThe Power level of this person is 'A-Class Spirit'."
         disaster_level_present = True
     elif user.id in TIGERS:
-        text += "\n\nThe Power level of this person is 'AA-Class Spirit'."
+        text += "\n\nThe Power level of this person is 'B-Class Spirit'."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThe Power level of this person is 'A-Class Spirit'."
+        text += "\n\nThe Power level of this person is 'C-Class Spirit'."
         disaster_level_present = True
 
     if disaster_level_present:
