@@ -177,7 +177,7 @@ def new_member(update: Update, context: CallbackContext):
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_text(
-                    "Oh, Genos? Let's get this moving.",
+                    "Yoo LoL a pro noob is here..",
                     reply_to_message_id=reply)
                 welcome_log = (f"{html.escape(chat.title)}\n"
                                f"#USER_JOINED\n"
@@ -187,7 +187,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "Whoa! S Rank Hunter just joined!",
+                    "Whoa! SS-Class Spirit just joined!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -195,7 +195,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Sudos
             elif new_mem.id in DRAGONS:
                 update.effective_message.reply_text(
-                    "Huh! A Rank Hunter just joined! Stay Alert!",
+                    "Huh! S-Class Spirit just joined! Stay Alert!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -203,7 +203,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Support
             elif new_mem.id in DEMONS:
                 update.effective_message.reply_text(
-                    "Huh! Someone with a B Rank Hunter level just joined!",
+                    "Huh! Someone with a A-Class Spirit level just joined!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -211,14 +211,14 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Whitelisted
             elif new_mem.id in TIGERS:
                 update.effective_message.reply_text(
-                    "Oof! A C Rank Hunter just joined!",
+                    "Oof! A B-Class Spirit just joined!",
                     reply_to_message_id=reply)
                 continue
 
             # Welcome Tigers
             elif new_mem.id in WOLVES:
                 update.effective_message.reply_text(
-                    "Oof! A D Rank Hunter just joined!",
+                    "Oof! A C-Class Spirit just joined!",
                     reply_to_message_id=reply)
                 continue
 
