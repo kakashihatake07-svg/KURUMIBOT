@@ -142,7 +142,7 @@
       "DONATION_LINK": {
          "description": "Optional: link where you would like to receive donations. If you are a noob, better leave it",
          "required": false,
-         "value": "https://www.paypal.me/piratehunter12"
+         "value": "https://www.paypal.me/zameeljaz"
       },
       "DEL_CMDS": {
          "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
@@ -167,11 +167,6 @@
          "description": "Don't change the ./",
          "required": true,
          "value": "./"
-      },
-      "TELEGRAPH_SHORT_NAME": {
-         "description": "To Run telegraph uploader",
-         "required": false,
-         "value": "Kurumi"
       }
   },
   "buildpacks": [
