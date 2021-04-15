@@ -210,8 +210,8 @@ def start(update: Update, context: CallbackContext):
                     ], 
                      [
                          InlineKeyboardButton(
-                             text="📳 Anime Chat Group 📳",
-                             url="https://t.me/WeebXWorld")
+                             text="⚙Basic uses for new users⚙",
+                             url="https://telegra.ph/Basic-Uses-Of-Kurumi-04-15")
                     ]]))
                      
                     
