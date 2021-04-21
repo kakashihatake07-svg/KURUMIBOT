@@ -73,39 +73,39 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-`Hello` [🙋🏻‍](https://telegra.ph/file/99bbcc3b8564804dc2ab0.jpg) `My name is` *KURUMI*
-`I'm here to help you Save your groups with My Zaphkiel` *📚Commands*   
+`Hello` [🙋🏻‍](https://telegra.ph/file/2c2992f2677363a2621e1.mp4) `My name is` *Zero Two*
+`I'm Zero Two From Darling In The FranXX I will help you in managing You Groups` *Commands*   
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ Add KURUMI TO YOUR GROUP ➕️", url="t.me/Kurumi_0bot?startgroup=true"),
+            text=" Add KURUMI TO YOUR GROUP ", url="t.me/Kurumi_0bot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text=" 🔰ABOUT", callback_data="kurumi_"),
-        InlineKeyboardButton(text=" 🌀COMMANDS", callback_data="help_back"),
+        InlineKeyboardButton(text=" ABOUT", callback_data="kurumi_"),
+        InlineKeyboardButton(text="HELP/COMMANDS", callback_data="help_back"),
     ],
     [
         InlineKeyboardButton(
-            text="⚜️My God", url="https://t.me/Hiro_jazz"),
+            text="Our Netwrok", url="https://t.me/Anime_HeavenD"),
         InlineKeyboardButton(
-            text="🚨Support🚨", url="https://t.me/kurumisupport"),
+            text="Zero Two Support", url="https://t.me/Zero2botsupport"),
     ], 
     [
         InlineKeyboardButton(
-            text="🔔Updates🔔", url="https://t.me/hiroiscool"
+            text="Zero Two Updates", url="https://t.me/Zero2Updates"
         ),
     ], 
 ]
 
 
 HELP_STRINGS = """
-`Hi.. I'm` [🙋🏻](https://telegra.ph/file/99bbcc3b8564804dc2ab0.jpg)
+`Hi..There ()
 `Click on the buttons below to get documentation about specific modules..`"""
 
 
-KURUMI_IMG = "https://telegra.ph/file/e1d87ec2bdac4e3cfe0a4.mp4"
+KURUMI_IMG = "https://telegra.ph/file/e72d64685c960a7330e31.mp4"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 Click here to donate in [Paypal](https://www.paypal.me/zameeljaz)"""
@@ -193,7 +193,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="⬅️ BACK", callback_data="help_back")]]
+                        [[InlineKeyboardButton(text="Go BACK", callback_data="help_back")]]
                     ),
                 )
 
